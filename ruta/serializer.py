@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import TblMovilidadRuta
 
-class TblMovilidadRutaSerializer(serializers.ModelSerializer):
+class RutaSerializer(serializers.ModelSerializer):
     class Meta:
         model = TblMovilidadRuta
         fields = '__all__'

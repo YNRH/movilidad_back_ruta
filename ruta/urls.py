@@ -1,7 +1,7 @@
-from rest_framework.routers import DefaultRouter
-from . import views
+from django.urls import path
+from .views import RutaView, RutaDetailView
 
-router = DefaultRouter()
-router.register(r'ruta', views.MovilidadRutaViewSet, basename='ruta')
-
-urlpatterns = router.urls
+urlpatterns = [
+    path('ruta/', RutaView.as_view(), name='ruta-list'),
+    path('ruta/<int:pk>/', RutaDetailView.as_view(), name='ruta-detail'),
+]
