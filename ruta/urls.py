@@ -1,7 +1,13 @@
-from django.urls import path
-from .views import RutaView, RutaDetailView
+from django.urls import path, include
+from ruta import views
+#from .views import RutaView, RutaDetailView, MovilidadView
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'ruta', views.RutaViewSet)
+router.register(r'movilidad', views.MovilidadViewSet)
 
 urlpatterns = [
-    path('ruta/', RutaView.as_view(), name='ruta-list'),
-    path('ruta/<int:pk>/', RutaDetailView.as_view(), name='ruta-detail'),
+    path('', include(router.urls))
 ]

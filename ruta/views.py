@@ -1,23 +1,14 @@
 
-from rest_framework import generics
-from .models import TblMovilidadRuta
-from .serializer import RutaSerializer
+from .models import TblMovilidadRuta, TblMovilidad
+from .serializer import RutaSerializer, MovilidadSerializer
 
-class RutaView(generics.ListCreateAPIView):
-    queryset = TblMovilidadRuta.objects.all()
-    serializer_class = RutaSerializer
-
-class RutaDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = TblMovilidadRuta.objects.all()
-    serializer_class = RutaSerializer
-
-
-'''
 from rest_framework import viewsets
-from .models import TblMovilidadRuta
-from .serializer import TblMovilidadRutaSerializer
 
-class MovilidadRutaViewSet(viewsets.ModelViewSet):
+class RutaViewSet(viewsets.ModelViewSet):
     queryset = TblMovilidadRuta.objects.all()
-    serializer_class = TblMovilidadRutaSerializer
-'''
+    serializer_class = RutaSerializer
+
+class MovilidadViewSet(viewsets.ModelViewSet):
+    queryset = TblMovilidad.objects.all()
+    serializer_class = MovilidadSerializer
+
